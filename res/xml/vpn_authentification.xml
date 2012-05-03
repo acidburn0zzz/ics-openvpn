@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:key="remoteServerTLS"
+        android:summary="Checks whether the server uses a TLS Server Certificate"
+        android:title="Except TLS Server" />
+    <CheckBoxPreference
+        android:key="checkRemoteCN"
+        android:summary="Checks the Remote Server Certificate CN against a String"
+        android:title="Certificate Hostname Check" />
+
+    <EditTextPreference
+        android:dependency="checkRemoteCN"
+        android:dialogMessage="Enter the String against which the remote Server is checked. Openvpn will use prefix matching. &quot;Server&quot; matches &quot;Server-1&quot; and &quot;Server-2&quot;\nLeave empty to check the CN against the server hostname."
+        android:key="remotecn"
+        android:title="Remote Hostname(CN)" />
+
+    <PreferenceCategory android:title="TLS Authentication" >
+        <SwitchPreference
+            android:key="useTLSAuth"
+            android:summary="Enables the TLS Key Authentication"
+            android:title="@string/useTLSAuth" />
+
+        <Preference
+            android:dependency="useTLSAuth"
+            android:key="tlsAuthFile"
+            android:title="TLS Auth File" />
+
+        <ListPreference
+            android:entries="@array/tls_directions_entries"
+                    android:dependency="useTLSAuth"
+            
+            android:entryValues="@array/tls_directions_values"
+            android:key="tls_direction"
+            android:persistent="false"
+            android:title="TLS Direction" />
+    </PreferenceCategory>
+/>
+
+</PreferenceScreen>
