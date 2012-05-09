@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <header
+        android:tag="BasicSettings"
+        android:fragment="de.blinkt.openvpn.Settings_Basic"
+        android:summary="Server, port and authentication method. Normally you should only settings specified here."
+        android:title="Basic Settings" 
+        android:id="@+id/basicsettingsid"/>
+    <!-- android:icon="@drawable/ic_settings_applications" -->
+
+    <header
+        android:fragment="de.blinkt.openvpn.Settings_IP"
+        android:summary="IP Address and Routing"
+        android:title="IP Settings" />
+    <header
+        android:fragment="de.blinkt.openvpn.Settings_Authentication"
+        android:summary="Authentication"
+        android:title="Authentication" />
+
+    <!-- android:icon="@drawable/ic_settings_display" -->
+     <header
+        android:fragment="de.blinkt.openvpn.Settings_Obscure"
+        android:summary="Obscure OpenVPN Settings. Normally not needed."
+        android:title="Obscure" >
+    </header>
+
+    <header
+        android:fragment="de.blinkt.openvpn.ShowConfigFragment"
+        android:summary="Shows the generated openvpn Configuration File"
+        android:title="Generated Config" />
+
+</preference-headers>
