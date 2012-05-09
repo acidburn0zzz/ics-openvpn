@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:key="remoteServerTLS"
+        android:summary="@string/check_remote_tlscert"
+        android:title="@string/check_remote_tlscert_title" />
+    <CheckBoxPreference
+        android:key="checkRemoteCN"
+        android:summary="@string/remote_tlscn_check_summary"
+        android:title="@string/remote_tlscn_check_title" />
+
+    <EditTextPreference
+        android:dependency="checkRemoteCN"
+        android:dialogMessage="@string/enter_tlscn_dialog"
+        android:key="remotecn"
+        android:title="@string/enter_tlscn_title" />
+
+    <PreferenceCategory android:title="TLS Authentication" >
+        <SwitchPreference
+            android:key="useTLSAuth"
+            android:summary="@string/tls_key_auth"
+            android:title="@string/useTLSAuth" />
+
+        <Preference
+            android:dependency="useTLSAuth"
+            android:key="tlsAuthFile"
+            android:title="@string/tls_auth_file" />
+
+        <ListPreference
+            android:entries="@array/tls_directions_entries"
+                    android:dependency="useTLSAuth"
+            
+            android:entryValues="@array/tls_directions_values"
+            android:key="tls_direction"
+            android:persistent="false"
+            android:title="@string/tls_direction" />
+    </PreferenceCategory>
+/>
+
+</PreferenceScreen>
